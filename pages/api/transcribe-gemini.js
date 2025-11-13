@@ -29,7 +29,7 @@ export default async function handler(req) {
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-    const prompt = "Přepiš tento hlasový záznam do češtiny a napiš stručné shrnutí.";
+    const prompt = "Transcribe this audio recording. IMPORTANT: Transcribe the text in the same language as the audio is spoken. Do not translate it. After the transcription, provide a brief summary in the same language as the audio.";
     const audioPart = {
       inlineData: {
         data: base64Audio,
